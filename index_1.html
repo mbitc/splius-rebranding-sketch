@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splius — Internetas ir Televizija</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #0047FF;
+    --blue-mid: #1A5CFF;
+    --navy: #050F2E;
+    --sky: #C8DEFF;
+    --white: #F8FAFF;
+    --gray: #64748B; /* Kiek tamsesnė pilka geresniam skaitomumui */
+    --accent: #00E5C8;
+    --warn: #FF5533;
+    --r: 14px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    overflow-x: hidden;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 48px;
+    background: rgba(248,250,255,.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,71,255,.08);
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px; font-weight: 800; letter-spacing: -0.5px;
+    color: var(--blue); text-decoration: none;
+  }
+  .logo span { color: var(--navy); }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: 15px; font-weight: 500;
+    color: var(--navy); opacity: .8;
+    transition: all .2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--blue); }
+
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .btn-ghost {
+    font-size: 14px; font-weight: 600; color: var(--blue);
+    text-decoration: none; padding: 8px 18px;
+    border: 2px solid var(--blue); border-radius: 999px;
+    transition: all .2s;
+  }
+  .btn-ghost:hover { background: var(--blue); color: #fff; }
+
+  .btn-main {
+    font-size: 14px; font-weight: 700; color: #fff;
+    background: var(--blue); padding: 10px 22px;
+    border-radius: 999px; text-decoration: none;
+    border: 2px solid var(--blue);
+    transition: all .2s;
+  }
+  .btn-main:hover { background: var(--navy); border-color: var(--navy); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 48px 80px;
+    gap: 48px;
+    position: relative;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,71,255,.07); color: var(--blue);
+    border-radius: 999px; padding: 6px 14px;
+    font-size: 13px; font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(38px, 5vw, 64px);
+    font-weight: 800; line-height: 1.1; letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+
+  .hero-sub {
+    font-size: 18px; line-height: 1.6; color: #475569;
+    max-width: 480px; margin-bottom: 36px;
+  }
+
+  /* ── PRICING CARDS FIX ── */
+  .plan-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 24px; padding: 40px;
+    display: flex; flex-direction: column;
+  }
+
+  .plan-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 48px; font-weight: 800; color: #fff;
+    letter-spacing: -1px; margin: 12px 0;
+  }
+
+  .plan-features li {
+    font-size: 15px; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+    line-height: 1.4;
+  }
+
+  /* ── UTILS ── */
+  .reveal { opacity: 0; transform: translateY(20px); transition: all .6s ease-out; }
+  .revealed { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; text-align: center; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-ctas { justify-content: center; }
+    .nav-links { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">sp<span>lius</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Akcijos</a></li>
+    <li><a href="#">Internetas</a></li>
+    <li><a href="#">Televizija</a></li>
+    <li><a href="#">Prekės</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="btn-ghost">Savitarna</a>
+    <a href="#" class="btn-main">📞 19955</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="badge">Naujos kartos šviesolaidis</div>
+    <h1 class="hero-title">Spartus internetas išmaniems namams</h1>
+    <p class="hero-sub">Aukštos kokybės interneto ir televizijos paslaugos kiekvienam. Greitis, kurio trokštate — kaina, kuri tinka.</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn-main" style="padding: 14px 32px; font-size: 16px;">Rinktis planą</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div style="background: var(--navy); border-radius: 24px; padding: 40px; color: #fff; text-align: center;">
+      <div style="font-family: 'Syne', sans-serif; font-size: 64px; font-weight: 800; color: var(--accent);">100</div>
+      <div style="text-transform: uppercase; letter-spacing: 2px; font-size: 14px; opacity: .7;">Mbps Greitis</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); } });
+  });
+  els.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
